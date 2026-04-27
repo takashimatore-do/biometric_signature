@@ -24,7 +24,7 @@ class BiometricSignature {
   ///
   /// params: A map of options, {"payload": "// your payload", "promptMessage": "// your welcome message", "cancelButtonText": "Cancel"(on Android only), "shouldMigrate": "true"(on iOS only), "allowDeviceCredentials": "false"(on Android only)}
   /// - Returns: Either the created signature as a base64 encoded string or an error
-  Future<String?> createSignature({Map<String, String>? options}) async {
+  Future<String?> createSignature({Map<String, dynamic>? options}) async {
     final String? response = await BiometricSignaturePlatform.instance
         .createSignature(options: options);
     return response;

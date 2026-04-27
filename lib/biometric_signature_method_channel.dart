@@ -46,7 +46,7 @@ class MethodChannelBiometricSignature extends BiometricSignaturePlatform {
   }
 
   @override
-  Future<String?> createSignature({Map<String?, String?>? options}) async {
+  Future<String?> createSignature({Map<String?, dynamic>? options}) async {
     try {
       final response = await methodChannel.invokeMethod<String>(
         'createSignature',

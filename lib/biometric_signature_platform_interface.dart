@@ -42,7 +42,7 @@ abstract class BiometricSignaturePlatform extends PlatformInterface {
     );
   }
 
-  Future<String?> createSignature({Map<String, String?>? options}) {
+  Future<String?> createSignature({Map<String, dynamic>? options}) {
     throw UnimplementedError(
       'createSignature(Map<String, String?>? options) has not been implemented.',
     );
