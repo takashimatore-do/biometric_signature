@@ -31,7 +31,7 @@ public class BiometricSignaturePlugin: NSObject, FlutterPlugin {
                 result(FlutterError(code: Constants.invalidPayload, message: "Invalid arguments", details: nil))
             }
         case "createSignature":
-            createSignature(options: call.arguments as? Dictionary<String, String>, result: result)
+            createSignature(options: call.arguments as? Dictionary<String, Any>, result: result)
         case "deleteKeys":
             deleteKeys(result: result)
         case "biometricAuthAvailable":
@@ -269,7 +269,7 @@ public class BiometricSignaturePlugin: NSObject, FlutterPlugin {
         }
     }
 
-    private func createSignature(options: [String: String]?, result: @escaping FlutterResult) {
+    private func createSignature(options: [String: Any]?, result: @escaping FlutterResult) {
         let promptMessage = options?["promptMessage"] ?? "Authenticate to sign data"
         guard let payload = options?["payload"],
               let dataToSign = payload.data(using: .utf8) else {
