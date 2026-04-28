@@ -270,8 +270,8 @@ public class BiometricSignaturePlugin: NSObject, FlutterPlugin {
     }
 
     private func createSignature(options: [String: Any]?, result: @escaping FlutterResult) {
-        let promptMessage = options?["promptMessage"] ?? "Authenticate to sign data"
-        guard let payload = options?["payload"],
+        let promptMessage = options?["promptMessage"] as? String ?? "Authenticate to sign data"
+        guard let payload = options?["payload"] as? String,
               let dataToSign = payload.data(using: .utf8) else {
             dispatchMainAsync {
                 result(FlutterError(code: Constants.invalidPayload,
